@@ -11,7 +11,8 @@ function EditItemDetails() {
         details: "",
         reviews: "",
         rating: "",
-        image: ""
+        image: "",
+        desc:""
     });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -120,6 +121,17 @@ function EditItemDetails() {
                         id="image"
                         name="image"
                         value={details.image}
+                        onChange={handleInputChange}
+                    />
+                </div>
+
+                <div className={styles["form-group"]}>
+                    <label htmlFor="desc">Image Description:</label>
+                    <input
+                        type="text"
+                        id="desc"
+                        name="desc"
+                        value={details.desc}
                         onChange={handleInputChange}
                     />
                 </div>

@@ -6,10 +6,12 @@ import Itemtypes from "./Pages/ItemTypes"; // Assuming this is where you get the
 function InventoryCounter() {
     const [categoryCounts, setCategoryCounts] = useState({});
     const [totalItems, setTotalItems] = useState(0);
+    const [totalCategories, setTotalCategories] = useState(0); // Added state for total categories
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const itemsRef = ref(database, 'items');
+        const categoriesRef = ref(database, 'categories'); // Reference to categories data
 
         const countItems = (snapshot) => {
             const data = snapshot.val();
@@ -18,7 +20,7 @@ function InventoryCounter() {
                 let total = 0;
                 // Loop through each category and count the items
                 for (let category in data) {
-                    const categoryItems = data[category];
+                    const categoryItems = data[category] || {}; // Default to an empty object if no items exist
                     const categoryItemCount = Object.keys(categoryItems).length;
                     counts[category] = {
                         itemCount: categoryItemCount,
@@ -27,7 +29,7 @@ function InventoryCounter() {
                     total += categoryItemCount;  // Add category count to total
                 }
                 setCategoryCounts(counts);
-                setTotalItems(total); // Set total count
+                setTotalItems(total); // Set total item count
             } else {
                 setCategoryCounts({});
                 setTotalItems(0);
@@ -35,6 +37,21 @@ function InventoryCounter() {
             setLoading(false);
         };
 
+        const countCategories = (snapshot) => {
+            const categoriesData = snapshot.val();
+            if (categoriesData) {
+                setTotalCategories(Object.keys(categoriesData).length); // Count the categories
+            } else {
+                setTotalCategories(0);
+            }
+        };
+
+        // Fetch category count first
+        onValue(categoriesRef, countCategories, (error) => {
+            console.error("Error fetching categories:", error);
+        });
+
+        // Fetch item data after category data
         onValue(itemsRef, countItems, (error) => {
             console.error("Error fetching items:", error);
             setLoading(false);
@@ -45,6 +62,7 @@ function InventoryCounter() {
 
     return (
         <div>
+            <h1>Total Categories: {totalCategories}</h1> {/* Display total categories */}
             <h2>Total Items in Inventory: {totalItems}</h2>
             <h3>Items by Category:</h3>
             {Object.keys(categoryCounts).length > 0 ? (
@@ -70,4 +88,3 @@ function InventoryCounter() {
 }
 
 export default InventoryCounter;
-

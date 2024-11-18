@@ -77,6 +77,8 @@ function Details() {
                 <p>Item Stock: {details.details}</p>
                 <p>Item Reviews: {details.reviews}</p>
                 <p>Item Rating: {details.rating}</p>
+                <p>Item Description: {details.desc}</p>
+
                 
                 {details.image && (
                     <img

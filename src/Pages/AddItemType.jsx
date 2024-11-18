@@ -20,6 +20,7 @@ function AddItemType() {
     const [reviews, setReviews] = useState("");
     const [rating, setRating] = useState("");
     const [image, setImage] = useState("");
+    const [desc, setDesc] = useState("");
     const [showConfirmation, setShowConfirmation] = useState(false); 
 
 
@@ -122,7 +123,7 @@ function AddItemType() {
 
                 <div className={styles["form-group"]}>
                     <label htmlFor="item_details">Item Stock:</label>
-                    <input type="" id="item_details" value={details} onChange={(e) => setDetails(e.target.value)}/>
+                    <input type="number" id="item_details" value={details} onChange={(e) => setDetails(e.target.value)}/>
                 </div>
 
                 <div className={styles["form-group"]}>
@@ -138,6 +139,11 @@ function AddItemType() {
                 <div className={styles["form-group"]}>
                     <label htmlFor="item_image">Image URL:</label>
                     <input type="text" id="item_image" value={image} onChange={(e) => setImage(e.target.value)}/>
+                </div>
+
+                <div className={styles["form-group"]}>
+                    <label htmlFor="item_image">Image Decription:</label>
+                    <input type="text" id="item_image" value={desc} onChange={(e) => setDesc(e.target.value)}/>
                 </div>
 
                 <button type="submit" className={styles["submit-button"]}>Add New Item</button>
