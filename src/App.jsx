@@ -17,7 +17,7 @@ import ItemTypes from './Pages/ItemTypes';
 import AddItemType from './Pages/AddItemType';
 import Details from './Pages/ItemDetails';
 import EditDetails from './Pages/EditItemDetails';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './Layout'; // Import the Layout component
 import ForgotPassword from './ForgotPassword'; 
 import InventoryCounter from "./InventoryCounter";
