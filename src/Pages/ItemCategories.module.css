@@ -6,6 +6,7 @@
     padding: 10px;
     background-color: var(--bg-color);
     color: var(--text-color);
+    flex-wrap: wrap; /* Ensure it wraps when needed */
 }
 
 /* Search bar styling */
@@ -17,6 +18,9 @@
     outline: none;
     background-color: var(--input-bg);
     color: var(--input-text);
+    flex: 1; /* Allow search bar to take remaining space */
+    margin: 0 10px;
+    min-width: 150px; /* Ensures input doesn’t shrink too much */
 }
 
 .searchBar::placeholder {
@@ -97,4 +101,44 @@
     --hover-bg: #333333;
     --delete-icon-color: #aaa;
     --delete-icon-hover-color: #ff6666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search_item {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start;
+    }
+
+    .searchBar {
+        width: 100%; /* Full-width search bar on small screens */
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .item_styles {
+        justify-content: center; /* Center items on smaller screens */
+    }
+
+    .item {
+        width: 100%; /* Items take full width */
+        text-align: left; /* Left-align text for readability */
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search_item {
+        padding: 15px; /* Increased padding for small screens */
+    }
+
+    .item {
+        width: 100%; /* Full width on smaller devices */
+        font-size: 1rem; /* Adjust font size */
+        padding: 12px; /* Increase padding for better readability */
+    }
+
+    .delete_icon {
+        font-size: 1rem; /* Adjust icon size for smaller screens */
+    }
 }

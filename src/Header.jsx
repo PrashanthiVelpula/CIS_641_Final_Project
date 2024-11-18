@@ -41,7 +41,7 @@ const Header = ({onLogout}) => {
    
 
     return (
-        <header style={{ display: 'flex', justifyContent: 'space-between', padding: '2px', background: '#f8f8f8', borderBottom: '1px solid #ccc'}}>
+        <header style={{ display: 'flex', justifyContent: 'space-between', padding: '2px', background: '#f8f8f8', borderBottom: '1px solid #ccc',flexWrap: 'wrap'}}>
             <button style={{height:40,margin:20,borderRadius:5,fontWeight:'bold'}} onClick={handlehome}>Home</button>
             <button style={{height:40,margin:20,borderRadius:5,fontWeight:'bold'}} onClick={handleCountClick}>Count </button>{showCounter && <InventoryCounter />}
             <button style={{height:40,margin:20,borderRadius:5,fontWeight:'bold'}} onClick={toggleTheme}>{isDarkTheme ? 'Light Mode' : 'Dark Mode'}</button>

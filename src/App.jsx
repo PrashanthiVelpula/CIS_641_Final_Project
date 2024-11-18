@@ -21,10 +21,17 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './Layout'; // Import the Layout component
 import ForgotPassword from './ForgotPassword'; 
 import InventoryCounter from "./InventoryCounter";
+import { useMediaQuery } from 'react-responsive';
+
 
 
 
 function App() {
+
+const isMobile = useMediaQuery({ query: '(max-width: 600px)' });
+const isTablet = useMediaQuery({ query: '(min-width: 601px) and (max-width: 1024px)' });
+const isDesktop = useMediaQuery({ query: '(min-width: 1025px)' });
+
 
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return localStorage.getItem('isLoggedIn') === 'true';
@@ -105,6 +112,10 @@ function App() {
         <Router future={{ v7_relativeSplatPath: true }}>
             <Layout isLoggedIn={isLoggedIn} onLogout={handleLogout}>
                 <div className="App">
+        {/* Conditional rendering based on screen size */}
+          {isMobile }
+          {isTablet }
+          {isDesktop}
                     
                     <Routes>
                         <Route path="/" element={<Login onLogin={handleLogin}/>} />
