@@ -102,7 +102,7 @@ function App() {
 
     return (
         <ThemeProvider>
-        <Router>
+        <Router future={{ v7_relativeSplatPath: true }}>
             <Layout isLoggedIn={isLoggedIn} onLogout={handleLogout}>
                 <div className="App">
                     
