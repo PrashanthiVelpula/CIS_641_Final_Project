@@ -6,8 +6,9 @@
     padding: 10px;
     background-color: var(--bg-color);
     color: var(--text-color);
-    flex-wrap: wrap; /* Ensure it wraps when needed */
+    flex-wrap: wrap; 
 }
+
 
 /* Search bar styling */
 .searchBar {
@@ -106,7 +107,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .search_item {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column;
         align-items: flex-start;
     }
 
@@ -129,9 +130,16 @@
 
 @media (max-width: 480px) {
     .search_item {
-        padding: 15px; /* Increased padding for small screens */
+        padding: 5px; /* Increased padding for small screens */
     }
-
+    .searchBar {
+       margin-left: auto;
+       width: 95%;
+    }
+    .add-button{
+        width:50%;
+        min-width: 20px;
+    }
     .item {
         width: 100%; /* Full width on smaller devices */
         font-size: 1rem; /* Adjust font size */

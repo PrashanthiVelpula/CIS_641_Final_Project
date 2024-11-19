@@ -1,15 +1,12 @@
-// src/Header.js
-
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from './firebase'; // Make sure this path is correct
+import { auth } from './firebase'; 
 import { signOut } from 'firebase/auth';
 import { useTheme } from './ThemeContext';
 import InventoryCounter from "./InventoryCounter";
+import './Header.css';
 
-
-const Header = ({onLogout}) => {
+const Header = ({ onLogout }) => {
     const navigate = useNavigate();
     const { isDarkTheme, toggleTheme } = useTheme();
     const [showConfirmation, setShowConfirmation] = useState(false); 
@@ -28,35 +25,39 @@ const Header = ({onLogout}) => {
             console.error("Logout error:", error);
         }
     };
-    const handlehome=()=>{
-        navigate('/item-categories')
+
+    const handleHome = () => {
+        navigate('/item-categories');
     }
+
     const handleSaveClick = (event) => {
         event.preventDefault();
         setShowConfirmation(true); 
     };
+
     const handleCancel = () => {
         setShowConfirmation(false); 
     };
-   
 
     return (
-        <header style={{ display: 'flex', justifyContent: 'space-between', padding: '2px', background: '#f8f8f8', borderBottom: '1px solid #ccc',flexWrap: 'wrap'}}>
-            <button style={{height:40,margin:20,borderRadius:5,fontWeight:'bold'}} onClick={handlehome}>Home</button>
-            <button style={{height:40,margin:20,borderRadius:5,fontWeight:'bold'}} onClick={handleCountClick}>Count </button>{showCounter && <InventoryCounter />}
-            <button style={{height:40,margin:20,borderRadius:5,fontWeight:'bold'}} onClick={toggleTheme}>{isDarkTheme ? 'Light Mode' : 'Dark Mode'}</button>
-            <button style={{height:40,margin:20,borderRadius:5,fontWeight:'bold'}}onClick={handleSaveClick}>Logout</button>
-            {showConfirmation && (
-                <div>
-                    <p>Are You sure to Logout?</p>
-                    <button onClick={handleLogout}>Yes</button>
-                    <button onClick={handleCancel}>No</button>
-                </div>
-            )
+        <header className="header-container">
+            <button className="header-button" onClick={handleHome}>Home</button>
+            <button className="header-button" onClick={handleCountClick}>Count </button>{showCounter && <InventoryCounter />}
+            <button className="header-button" onClick={toggleTheme}>{isDarkTheme ? 'Light Mode' : 'Dark Mode'}</button>
+            <button className="header-button" onClick={handleSaveClick}>Logout</button>
             
-            }
+            {showConfirmation && (
+                <div className="confirmation-overlay">
+                    <div className="confirmation-modal">
+                        <p>Are You sure to Logout?</p>
+                        <button onClick={handleLogout}>Yes</button>
+                        <button onClick={handleCancel}>No</button>
+                    </div>
+                </div>
+            )}
         </header>
     );
 };
 
 export default Header;
+

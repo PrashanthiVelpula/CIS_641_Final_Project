@@ -126,4 +126,29 @@ button:hover {
 .save_button:hover, .cancel_button:hover {
     background-color: #45a049;
 }
+@media (max-width: 768px) {
+    .search_item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .searchBar {
+        width: 100%; /* Full-width search bar on small screens */
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+ 
+}
+
+@media (max-width: 480px) {
+    .search_item {
+        padding: 5px; /* Increased padding for small screens */
+    }
+    .searchBar {
+        width: 95%; /* Full-width search bar on small screens */
+        margin-left: auto;
+
+    }
+}
 

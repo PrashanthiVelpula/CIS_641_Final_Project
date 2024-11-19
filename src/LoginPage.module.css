@@ -1,11 +1,13 @@
 html, body {
     height: 100%;
+    width: 100;
     margin: 0;
     padding: 0;
 }
 
 .App {
-    height: 100vh; 
+    height: 100vh;
+    width: 100vw; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,3 +83,30 @@ sup {
     border-color: red;
   }
   
+  @media (max-width: 480px) {
+    .App{
+      height: 100vh; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #FFEBCD; 
+    }
+    .style1 {
+        padding: 5px; /* Reduce padding */
+        overflow: hidden;
+        margin: auto;
+    }
+    .style1 div{
+      margin:5px;
+  }
+    button {
+        font-size: 0.9rem; /* Slightly smaller font for buttons */
+    }
+    .input_group input {
+        font-size: 0.9rem; /* Slightly smaller font for inputs */
+    }
+    .input_group label {
+        margin-right: 0; /* Remove extra margin */
+        font-size: 0.9rem; /* Adjust font size */
+    }
+}

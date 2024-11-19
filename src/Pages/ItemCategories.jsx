@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './ItemCategories.module.css';
+import './ItemCategories.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { database } from '../firebase'; // Import your Firebase database instance
@@ -92,7 +93,7 @@ function Itemcategories() {
             <div className={styles.search_item}>
                 <h1>Item Categories Page</h1>
                 <input type="text" placeholder="Search The Item" className={styles.searchBar} onChange={(event) => setSearchTerm(event.target.value)}/>
-                <button onClick={handleAddCategory}>Add New Category</button>
+                <button className="add-button"onClick={handleAddCategory}>Add New Category</button>
             </div>
 
             {/* <div className={styles.item_styles}>
