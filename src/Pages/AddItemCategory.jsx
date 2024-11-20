@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { database } from '../firebase'; // Import Firebase instance
+import styles from "./AddItemCategory.module.css";
 import { ref, push } from 'firebase/database';
-import styles from './AddItemCategory.module.css';
+
 
 function AddCategory() {
     const navigate = useNavigate();
@@ -46,19 +47,33 @@ function AddCategory() {
                 <div>
                     <button disabled={!formValidate()}>Save</button>
                 </div>
-            </form>
+           
 
             {showConfirmation && (
                 <>
-                <div className={styles.modal_overlay}></div>
-                <div className={styles.confirmation_modal}>
+                
+                    <div className={styles.outer}>
+                    <div className={styles.confirmation}>
                     <p>Would you like to add a new category?</p>
                     <button onClick={handleAddCategory}>Yes</button>
-                    <button onClick={handleCancel}>No</button>
+                    <button onClick={handleCancel}>No</button></div>
                 </div>
+
                 </>
             )}
-
+             
+             
+             {/* {showConfirmation && (
+                <>
+                <div className={styles.confirmation-overlay}>
+                    <p>Would you like me to add a new category?</p>
+                    <button onClick={handleAddCategory}>Yes</button>
+                    <button onClick={handleCancel}>No</button>
+                    </div>
+                
+                </>
+            )} */}
+</form>
             {/* {message && <p>{message}</p>} */}
         </div>
     );

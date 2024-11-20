@@ -150,15 +150,26 @@ function AddItemType() {
                 <button type="button" onClick={cancel} className={styles["cancel-button"]}>Cancel</button>
             </form>
              
-            {showConfirmation && (
+            {/* {showConfirmation && (
                 <div>
                     <p>Would you like to add new item </p>
                     <button onClick={item_add_handler}>Yes</button>
                     <button onClick={handleCancel}>No</button>
                 </div>
-            )
-            
-            }
+            )} */}
+            {showConfirmation && (
+                <>
+                
+                    <div className={styles.outer}>
+                    <div className={styles.confirmation}>
+                    <p>Would you like to add a new item?</p>
+                    <button onClick={item_add_handler}>Yes</button>
+                    <button onClick={handleCancel}>No</button>
+                    </div>
+                </div>
+
+                </>
+            )}
 
         </div>
     );

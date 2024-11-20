@@ -148,7 +148,7 @@ function EditItemDetails() {
                 </button>
             </form>
 
-            {showConfirmation && (
+            {/* {showConfirmation && (
                 <div className={styles["confirmation-modal"]}>
                     <p>Are you sure you want to save these changes?</p>
                     <button
@@ -164,6 +164,20 @@ function EditItemDetails() {
                         No
                     </button>
                 </div>
+            )} */}
+            {showConfirmation && (
+                <>
+                
+                    <div className={styles.outer}>
+                    <div className={styles.confirmation}>
+                    <p>Are you sure you want to save these changes?</p>
+                    <button
+                        onClick={handleSaveChanges}>Yes</button>
+                    <button onClick={handleCancel}>No</button>
+                    </div>
+                </div>
+
+                </>
             )}
         </div>
     );

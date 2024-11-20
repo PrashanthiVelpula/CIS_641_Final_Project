@@ -67,54 +67,40 @@
     background-color: #bbb;
 }
 
-/* Confirmation modal styling */
-.confirmation_modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.confirmation {
+    background: white;
     padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    z-index: 1000;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 90%;
+    max-width: 400px; /* Limit the modal width */
 }
 
-/* Confirmation buttons */
-.confirm_button {
-    padding: 10px 20px;
+.confirmation p {
+    margin-bottom: 20px; /* Add space between the question and buttons */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.confirmation button {
+    margin: 10px 5px; /* Add spacing between the buttons */
+    padding: 10px 20px; /* Button size */
+    border-radius: 5px;
     font-size: 16px;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
     cursor: pointer;
-    border-radius: 4px;
+    display: inline-block;
 }
 
-.confirm_button:hover {
-    background-color: #45a049;
-}
-
-/* Close modal button */
-.confirmation_modal button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    background-color: #f44336;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.confirmation_modal button:hover {
-    background-color: #da190b;
-}
-
-/* Loading and error messages styling */
-p {
-    font-size: 16px;
-    color: #333;
-    text-align: center;
+.outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the modal is above other elements */
 }

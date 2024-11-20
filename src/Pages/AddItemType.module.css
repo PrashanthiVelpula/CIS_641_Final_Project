@@ -91,3 +91,41 @@
 button:hover {
     opacity: 0.9;
 }
+
+.confirmation {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px; /* Limit the modal width */
+}
+
+.confirmation p {
+    margin-bottom: 20px; /* Add space between the question and buttons */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.confirmation button {
+    margin: 10px 5px; /* Add spacing between the buttons */
+    padding: 10px 20px; /* Button size */
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the modal is above other elements */
+}
