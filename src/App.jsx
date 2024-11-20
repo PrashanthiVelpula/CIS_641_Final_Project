@@ -5,7 +5,7 @@ import React from 'react';
 
 import './LoginPage.module.css';
 import { useReducer, useState,useEffect } from "react";
-import { database } from './firebase';
+import { database,auth } from './firebase';
 import { getDatabase, ref, set,onValue } from "firebase/database";
 import { ThemeProvider } from './ThemeContext';
 import Login from './LoginPage';
@@ -31,6 +31,8 @@ function App() {
 const isMobile = useMediaQuery({ query: '(max-width: 600px)' });
 const isTablet = useMediaQuery({ query: '(min-width: 601px) and (max-width: 1024px)' });
 const isDesktop = useMediaQuery({ query: '(min-width: 1025px)' });
+
+
 
 
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -116,7 +118,8 @@ const isDesktop = useMediaQuery({ query: '(min-width: 1025px)' });
           {isMobile }
           {isTablet }
           {isDesktop}
-                    
+
+         
                     <Routes>
                         <Route path="/" element={<Login onLogin={handleLogin}/>} />
                         <Route path="/create-account" element={<CreateAccount />} />

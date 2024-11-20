@@ -104,3 +104,10 @@
     align-items: center;
     z-index: 1000; /* Ensure the modal is above other elements */
 }
+@media (max-width: 600px) {
+    
+    .confirmation{
+        width: 80%;
+        max-width: 350px;
+    }
+}
