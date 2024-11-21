@@ -67,10 +67,10 @@ function EditItemDetails() {
     if (error) return <p className={styles.error}>{error}</p>;
 
     return (
-        <div className={styles["form-container"]}>
+        <div className={styles.form_container}>
             <h1>Edit Item Details</h1>
             <form onSubmit={handleSubmit}>
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="name">Item Name:</label>
                     <input
                         type="text"
@@ -81,7 +81,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="details">Item Stock:</label>
                     <input
                         type="number"
@@ -92,7 +92,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="reviews">Reviews:</label>
                     <input
                         type="text"
@@ -103,7 +103,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="rating">Rating:</label>
                     <input
                         type="number"
@@ -114,7 +114,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="image">Image URL:</label>
                     <input
                         type="text"
@@ -125,7 +125,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="desc">Image Description:</label>
                     <input
                         type="text"
@@ -136,13 +136,13 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <button type="submit" className={styles["submit-button"]}>
+                <button type="submit" className={styles.submit_button}>
                     Save Changes
                 </button>
                 <button
                     type="button"
                     onClick={() => navigate(`/item-types/${category}`)}
-                    className={styles["cancel-button"]}
+                    className={styles.cancel_button}
                 >
                     Cancel
                 </button>

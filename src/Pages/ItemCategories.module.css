@@ -4,9 +4,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    /* background-color: var(--bg-color); */
+    /* color: var(--text-color); */
+    
     flex-wrap: wrap; 
+}
+.search_item h1{
+    color:purple;
 }
 
 
@@ -14,18 +18,20 @@
 .searchBar {
     padding: 8px;
     font-size: 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid black;
     border-radius: 5px;
     outline: none;
-    background-color: var(--input-bg);
-    color: var(--input-text);
+    background-color:black;
+    color: aliceblue;
+    /* background-color: var(--input-bg);
+    color: var(--input-text); */
     flex: 1; /* Allow search bar to take remaining space */
     margin: 0 10px;
     min-width: 150px; /* Ensures input doesn’t shrink too much */
 }
 
 .searchBar::placeholder {
-    color: var(--placeholder-text);
+    color: purple;
 }
 
 /* Item styles */
@@ -37,9 +43,13 @@
     margin-top: 20px;
 }
 
+
+
+
 .item {
-    background-color: var(--card-bg);
-    color: var(--card-text);
+    /* background-color: var(--card-bg); */
+    /* color: var(--card-text); */
+    
     padding: 10px 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -57,26 +67,28 @@
     font-size: 1.2rem;
     margin: 0;
     cursor: pointer;
+    color:purple;
 }
 
 .item:hover {
-    background-color: var(--hover-bg);
+    background-color: #f0f0f0;
 }
 
 /* Delete icon */
 .delete_icon {
-    color: var(--delete-icon-color);
     cursor: pointer;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+    color: grey;
+    font-size: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .delete_icon:hover {
-    color: var(--delete-icon-hover-color);
+    color: red;
+    transform: scale(1.2);
 }
 
-/* Dark mode variables */
-:root {
+
+/* :root {
     --bg-color: #ffffff;
     --text-color: #000000;
     --border-color: #ddd;
@@ -102,7 +114,7 @@
     --hover-bg: #333333;
     --delete-icon-color: #aaa;
     --delete-icon-hover-color: #ff6666;
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -148,5 +160,51 @@
 
     .delete_icon {
         font-size: 1rem; /* Adjust icon size for smaller screens */
+    }
+}
+
+.confirmation {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px; /* Limit the modal width */
+}
+
+.confirmation p {
+    margin-bottom: 20px; /* Add space between the question and buttons */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.confirmation button {
+    margin: 10px 5px; /* Add spacing between the buttons */
+    padding: 10px 20px; /* Button size */
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the modal is above other elements */
+}
+
+@media (max-width: 600px) {
+    
+    .confirmation{
+        width: 80%;
+        max-width: 350px;
     }
 }

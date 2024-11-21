@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensures the height spans the full viewport */
+  width: 100%; /* Ensures the width spans the full viewport */
+}
+
