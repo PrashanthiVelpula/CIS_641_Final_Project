@@ -108,12 +108,43 @@ function EditItemDetails() {
                 </div>
 
                 <div className={styles.form_group}>
-                    <label htmlFor="reviews">Reviews:</label>
+                    <label htmlFor="desc">Image Description:</label>
+                    <input
+                        type="text"
+                        id="desc"
+                        name="desc"
+                        value={details.desc}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                
+                <div className={styles.form_group}>
+                    <label htmlFor="reviews">Manufacturer:</label>
                     <input
                         type="text"
                         id="reviews"
                         name="reviews"
                         value={details.reviews}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div className={styles.form_group}>
+                    <label htmlFor="dimension">Dimensions and weight:</label>
+                    <input
+                        type="text"
+                        id="dimension"
+                        name="dimension"
+                        value={details.dimension}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div className={styles.form_group}>
+                    <label htmlFor="reviews">Warranty:</label>
+                    <input
+                        type="text"
+                        id="warranty:"
+                        name="warranty:"
+                        value={details.warranty}
                         onChange={handleInputChange}
                     />
                 </div>
@@ -140,16 +171,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles.form_group}>
-                    <label htmlFor="desc">Image Description:</label>
-                    <input
-                        type="text"
-                        id="desc"
-                        name="desc"
-                        value={details.desc}
-                        onChange={handleInputChange}
-                    />
-                </div>
+            
 
                 <button type="submit" className={styles.submit_button}>
                     Save
