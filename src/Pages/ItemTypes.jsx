@@ -12,8 +12,9 @@ function Itemtypes() {
     const { category } = useParams(); // `category` comes from the route definition in App.js
     const [filteredItems, setFilteredItems] = useState([]);
     const [itemSearch, setItemSearch] = useState('');
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const [itemToDelete, setItemToDelete] = useState(null);
 
-    // Fetch items from Firebase on component mount
     useEffect(() => {
         const itemsRef = ref(database, `items/${category}`);
         onValue(itemsRef, (snapshot) => {
@@ -31,16 +32,23 @@ function Itemtypes() {
         navigate('/item-categories');
     };
 
-    const handleDeleteItem = async (itemId) => {
-        const confirmed = window.confirm('Are you sure you want to delete this item?');
-        if (confirmed) {
-            const itemRef = ref(database, `items/${category}/${itemId}`);
-            await remove(itemRef);
+    const handleDeleteItem = async () => {
+        if (itemToDelete) {
+            const itemRef = ref(database, `items/${category}/${itemToDelete}`);
+            try {
+                await remove(itemRef);
+                setFilteredItems((prevItems) => prevItems.filter((item) => item.id !== itemToDelete));
+                console.log(`Deleted item: ${itemToDelete}`);
+            } catch (error) {
+                console.error("Error deleting item: ", error);
+            } finally {
+                setItemToDelete(null);
+                setShowConfirmation(false);
+            }
         }
     };
 
     const handleDetailsPage = (itemName) => {
-        console.log(`Navigating to details for category: ${category}, item: ${itemName}`);
         navigate(`/details/${category}/${itemName}`);
     };
 
@@ -49,15 +57,25 @@ function Itemtypes() {
         item.name.toLowerCase().includes(itemSearch.toLowerCase())
     );
 
+    const confirmDelete = (deleteItem) => {
+        setItemToDelete(deleteItem);
+        setShowConfirmation(true);
+    };
+
+    const handleCancel = () => {
+        setItemToDelete(null);
+        setShowConfirmation(false);
+    };
+
     return (
         <div>
             <div className={styles.search_item}>
                 <button onClick={handleBack}>Back</button>
                 <h1>Items in {category}</h1>
-                <input 
-                    type="text" 
-                    placeholder="Search the item" 
-                    className={styles.searchBar} 
+                <input
+                    type="text"
+                    placeholder="Search the item"
+                    className={styles.searchBar}
                     onChange={(e) => setItemSearch(e.target.value)}
                 />
                 <button onClick={navigateAddItem}>Add New Item</button>
@@ -67,23 +85,36 @@ function Itemtypes() {
                 {filteredSearch.map((item) => (
                     <div key={item.id} className={styles.item_container}>
                         <div className={styles.item} onClick={() => handleDetailsPage(item.name)}>
+                            
+                            <img className={styles.image_style} src={item.image} alt="Item" />
                             <strong>{item.name}</strong>
                         </div>
                         <div className={styles.delete_icon_container}>
-                            <FontAwesomeIcon 
-                                icon={faTrash} 
-                                className={styles.delete_icon} 
-                                onClick={() => handleDeleteItem(item.id)}
+                            <FontAwesomeIcon
+                                icon={faTrash}
+                                className={styles.delete_icon}
+                                onClick={() => confirmDelete(item.id)}
                             />
                         </div>
                     </div>
                 ))}
             </div>
+
+            {showConfirmation && (
+                <div className={styles.outer}>
+                    <div className={styles.confirmation}>
+                        <p>Are you sure you want to delete this item?</p>
+                        <button onClick={handleDeleteItem}>Yes</button>
+                        <button onClick={handleCancel}>No</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
 
 export default Itemtypes;
+
 
 
 

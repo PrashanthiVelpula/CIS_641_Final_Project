@@ -1,4 +1,4 @@
-/* Header styles */
+/* Header styles
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -6,8 +6,21 @@
     padding: 10px 20px;
     background: #f8f8f8;
     border-bottom: 1px solid #ccc;
-    /* flex-wrap: wrap;  */
+    /* flex-wrap: wrap;  
+} */
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: inherit; /* Matches the parent background */
+    position: relative; /* Ensures it aligns within the layout */
+    z-index: 1; /* Ensures the header stays above other content */
+    width: 98%;
+    margin-right: 10px;
 }
+
 
 .header-button {
     height: 40px;

@@ -21,6 +21,10 @@ function AddItemType() {
     const [rating, setRating] = useState("");
     const [image, setImage] = useState("");
     const [desc, setDesc] = useState("");
+    const[price,setPrice]=useState("")
+    const[dimension,setDimension]=useState("")
+    const[warranty,setWarranty]=useState("")
+
     const [showConfirmation, setShowConfirmation] = useState(false); 
 
 
@@ -50,11 +54,15 @@ function AddItemType() {
         const newItem = {
             category,
             name,
+            price,
             details,
             reviews,
             rating,
             image,
-        };
+            desc,
+            dimension,
+            warranty
+            };
 
         try {
             await push(ref(database, `items/${category}`), newItem);
@@ -83,12 +91,12 @@ function AddItemType() {
     };
 
     return (
-        <div className={styles["form-container"]}>
+        <div className={styles.form_container}>
             <h1>Add New Item</h1>
             <form onSubmit={handleSaveClick}>
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="category_name">Category Name:</label>
-                        <div className={styles["custom-dropdown"]}>
+                        <div className={styles.custom_dropdown}>
                             <input type="text" placeholder="Select or search categories..." value={searchQuery}  // Display search query only
                             onChange={(e) => {
                                 setSearchQuery(e.target.value); // Update search query with typed value
@@ -97,57 +105,70 @@ function AddItemType() {
                             onFocus={() => setDropdownOpen(true)}
                             />
                             {dropdownOpen && (
-                            <div className={styles["dropdown-list"]}>
+                            <div className={styles.dropdown_list}>
                                 {filteredCategories.length > 0 ? (
                                     filteredCategories.map((cat) => (
                                         <div
                                             key={cat}
-                                            className={styles["dropdown-item"]}
+                                            className={styles.dropdown_item}
                                             onClick={() => handleCategorySelect(cat)}
                                         >
                                             {cat}
                                         </div>
                                     ))
                                 ) : (
-                                    <div className={styles["dropdown-item"]}>No categories found</div>
+                                    <div className={styles.dropdown_item}>No categories found</div>
                                 )}
                             </div>
                         )}
                     </div>
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="item_type">Item Name:</label>
                     <input type="text" id="item_type" value={name} onChange={(e) => setName(e.target.value)}/>
                 </div>
+                <div className={styles.form_group}>
+                    <label htmlFor="item_price">Item Price:</label>
+                    <input type="number" id="item_price" value={price} onChange={(e) => setPrice(e.target.value)}/>
+                </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="item_details">Item Stock:</label>
                     <input type="number" id="item_details" value={details} onChange={(e) => setDetails(e.target.value)}/>
                 </div>
-
-                <div className={styles["form-group"]}>
-                    <label htmlFor="item_reviews">Reviews:</label>
-                    <input type="text" id="item_reviews" value={reviews} onChange={(e) => setReviews(e.target.value)}/>
+                <div className={styles.form_group}>
+                    <label htmlFor="item_desc">Image Decription:</label>
+                    <input type="text" id="item_desc" value={desc} onChange={(e) => setDesc(e.target.value)}/>
                 </div>
 
-                <div className={styles["form-group"]}>
+
+                <div className={styles.form_group}>
+                    <label htmlFor="item_reviews">Manufacturer:</label>
+                    <input type="text" id="item_reviews" value={reviews} onChange={(e) => setReviews(e.target.value)}/>
+                </div>
+                <div className={styles.form_group}>
+                    <label htmlFor="dimension">Dimensions and weight:</label>
+                    <input type="text" id="dimension" value={dimension} onChange={(e) => setDimension(e.target.value)}/>
+                </div>
+                <div className={styles.form_group}>
+                    <label htmlFor="warranty">Warranty:</label>
+                    <input type="text" id="warranty" value={warranty} onChange={(e) => setWarranty(e.target.value)}/>
+                </div>
+
+                <div className={styles.form_group}>
                     <label htmlFor="item_rating">Rating:</label>
                     <input type="text" id="item_rating" value={rating} onChange={(e) => setRating(e.target.value)}/>
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="item_image">Image URL:</label>
                     <input type="text" id="item_image" value={image} onChange={(e) => setImage(e.target.value)}/>
                 </div>
 
-                <div className={styles["form-group"]}>
-                    <label htmlFor="item_image">Image Decription:</label>
-                    <input type="text" id="item_image" value={desc} onChange={(e) => setDesc(e.target.value)}/>
-                </div>
-
-                <button type="submit" className={styles["submit-button"]}>Add New Item</button>
-                <button type="button" onClick={cancel} className={styles["cancel-button"]}>Cancel</button>
+               
+                <button type="submit" className={styles.submit_button}>Add New Item</button>
+                <button type="button" onClick={cancel} className={styles.cancel_button}>Cancel</button>
             </form>
              
             {/* {showConfirmation && (

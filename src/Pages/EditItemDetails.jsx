@@ -3,11 +3,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import { database } from "../firebase";
 import { ref, get, update } from "firebase/database";
 import styles from './AddItemType.module.css'; // Reusing the same style file for consistency
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function EditItemDetails() {
     const { category, itemId } = useParams();
     const [details, setDetails] = useState({
         name: "",
+        price:"",
         details: "",
         reviews: "",
         rating: "",
@@ -48,11 +50,14 @@ function EditItemDetails() {
         try {
             const itemRef = ref(database, `items/${category}/${itemId}`);
             await update(itemRef, details);
-            navigate(`/item-types/${category}`);
+            navigate(`/details/${category}/${details.name}`);
         } catch (error) {
             setError("Failed to save changes.");
         }
     };
+    const handleCancelChanges=()=>{
+        navigate(`/details/${category}/${details.name}`)
+    }
 
     const handleCancel = () => {
         setShowConfirmation(false);
@@ -67,10 +72,10 @@ function EditItemDetails() {
     if (error) return <p className={styles.error}>{error}</p>;
 
     return (
-        <div className={styles["form-container"]}>
+        <div className={styles.form_container}>
             <h1>Edit Item Details</h1>
             <form onSubmit={handleSubmit}>
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="name">Item Name:</label>
                     <input
                         type="text"
@@ -80,8 +85,18 @@ function EditItemDetails() {
                         onChange={handleInputChange}
                     />
                 </div>
+                <div className={styles.form_group}>
+                    <label htmlFor="price">Item Price:</label>
+                    <input
+                        type="number"
+                        id="price"
+                        name="price"
+                        value={details.price}
+                        onChange={handleInputChange}
+                    />
+                </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="details">Item Stock:</label>
                     <input
                         type="number"
@@ -92,7 +107,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="reviews">Reviews:</label>
                     <input
                         type="text"
@@ -103,7 +118,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="rating">Rating:</label>
                     <input
                         type="number"
@@ -114,7 +129,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="image">Image URL:</label>
                     <input
                         type="text"
@@ -125,7 +140,7 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <div className={styles["form-group"]}>
+                <div className={styles.form_group}>
                     <label htmlFor="desc">Image Description:</label>
                     <input
                         type="text"
@@ -136,16 +151,17 @@ function EditItemDetails() {
                     />
                 </div>
 
-                <button type="submit" className={styles["submit-button"]}>
-                    Save Changes
+                <button type="submit" className={styles.submit_button}>
+                    Save
                 </button>
-                <button
+                <button type="button" onClick={handleCancelChanges} className={styles.cancel_button}>Cancel</button>
+                {/* <button
                     type="button"
                     onClick={() => navigate(`/item-types/${category}`)}
-                    className={styles["cancel-button"]}
+                    className={styles.cancel_button}
                 >
                     Cancel
-                </button>
+                </button> */}
             </form>
 
             {/* {showConfirmation && (

@@ -11,7 +11,12 @@ const Layout = ({ children , isLoggedIn ,onLogout }) => {
     const themeStyles = {
         backgroundColor: isDarkTheme ? '#333' : '#f8f8f8',
         color: isDarkTheme ? '#f8f8f8' : '#333',
-        minHeight: '100vh',
+        minHeight: '100vh', // Ensures it spans the full viewport height
+        width: '100vw', // Ensures it spans the full viewport width
+        margin: 0, // Removes any default margin
+        padding: 0, // Removes any default padding
+        overflowX: 'hidden', // Prevents horizontal scrollbars
+    
     };
     return (
         <div style={themeStyles}>
