@@ -62,6 +62,13 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.confirmation-modal p {
+    margin-bottom: 20px; /* Add space between the question and buttons */
+    font-size: 18px;
+    font-weight: bold;
+    color:rebeccapurple;
+
+}
 
 /* Responsive styles */
 @media (max-width: 600px) {

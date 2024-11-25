@@ -28,6 +28,7 @@
     flex: 1; /* Allow search bar to take remaining space */
     margin: 0 10px;
     min-width: 150px; /* Ensures input doesn’t shrink too much */
+    color:blue;
 }
 
 .searchBar::placeholder {
@@ -178,6 +179,8 @@
     margin-bottom: 20px; /* Add space between the question and buttons */
     font-size: 18px;
     font-weight: bold;
+    color:rebeccapurple;
+
 }
 
 .confirmation button {

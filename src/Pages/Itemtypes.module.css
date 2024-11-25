@@ -1,250 +1,63 @@
-/* 
 
 .item_styles {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 65px;
     justify-content: flex-start;
-    margin-top: 20px;
+    margin: 50px; 
 }
 
 .item_container {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.item {
-    display: flex;
-    background-color: var(--card-bg);
-    color: var(--card-text);
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    width: 250px;
-    text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.item:hover {
-    background-color: #f0f0f0;
-}
-
-.delete_icon {
-    cursor: pointer;
-    color: red;
-    font-size: 20px;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.delete_icon:hover {
-    color: darkred;
-    transform: scale(1.2); 
-}
-
-
-.search_item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    flex-wrap: wrap; 
-}
-
-.searchBar {
-    padding: 8px;
-    font-size: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    outline: none;
-    background-color: var(--input-bg);
-    color: var(--input-text);
-    flex: 1; 
-    margin: 0 10px;
-    min-width: 150px; 
-}
-
-button {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-
-
-.save_button, .cancel_button {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.save_button:hover, .cancel_button:hover {
-    background-color: #45a049;
-}
-@media (max-width: 768px) {
-    .search_item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .searchBar {
-        width: 100%; 
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
- 
-}
-
-@media (max-width: 480px) {
-    .search_item {
-        padding: 5px; 
-    }
-    .searchBar {
-        width: 95%; 
-        margin-left: auto;
-
-    }
-}
-.image_style{
-    width: 50px;
-    height: 100px;
-}
-
-.confirmation {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 400px; 
-}
-
-.confirmation p {
-    margin-bottom: 20px; 
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.confirmation button {
-    margin: 10px 5px; 
-    padding: 10px 20px; 
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    display: inline-block;
-}
-
-.outer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; 
-}
-
-@media (max-width: 600px) {
-    
-    .confirmation{
-        width: 80%;
-        max-width: 350px;
-    }
-}
-
-
-
- */
-
-
- /* Main item container styles */
-.item_styles {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
-    margin: 70px;  /* changed margin-top to margin */
-}
-
-/* Container for each item */
-.item_container {
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column; 
     align-items: center;
     /* background-color: var(--card-bg);
     color: var(--card-text); */
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
     cursor: pointer;
     width: 150px; /* Adjust width for consistent item size */
     text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Individual item box: Adjusted for stacking */
 .item {
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column; 
     align-items: center;
     text-align: center;
     gap: 10px;
     color: purple;
 }
 
-/* Item hover effect */
 .item:hover {
-    background-color: #f0f0f0;
+    background-color: #e4edec;
 }
 
-/* Image styling */
 .image_style {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    width: 200px; 
+    height:150px; 
+    object-fit: contain; 
     border-radius: 5px;
-    margin-bottom: 10px; /* Space between image and name */
+    margin-bottom: 15px; 
 }
+
+
+
 
 .item strong {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 10px; /* Space below name */
+    margin-bottom: 10px; 
 }
 
 .delete_icon_container {
     display: flex;
     justify-content: center;
-    margin-top: 10px; /* Space above the delete icon */
+    margin-top: 10px; 
 }
 
-/* Delete icon styles */
 .delete_icon {
     cursor: pointer;
     color: grey;
@@ -252,13 +65,11 @@ button:hover {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Delete icon hover effect */
 .delete_icon:hover {
     color: red;
-    transform: scale(1.2); /* Slight zoom effect */
+    transform: scale(1.2); 
 }
 
-/* Search bar and button container */
 .search_item {
     display: flex;
     justify-content: space-between;
@@ -266,7 +77,7 @@ button:hover {
     padding: 10px;
     /* background-color: var(--bg-color);
     color: var(--text-color); */
-    flex-wrap: wrap; /* Ensure it wraps when needed */
+    flex-wrap: wrap; 
 }
 .search_item h1{
     color: purple;
@@ -286,6 +97,8 @@ button:hover {
     flex: 1; /* Allow search bar to take remaining space */
     margin: 0 10px;
     /* min-width: 150px;  */
+    color:blue;
+
 }
 
 /* Buttons: Add Item and Back */
@@ -313,27 +126,26 @@ button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 90%;
-    max-width: 400px; /* Limit the modal width */
+    max-width: 400px; 
 }
 
-/* Confirmation text */
 .confirmation p {
-    margin-bottom: 20px; /* Add space between the question and buttons */
+    margin-bottom: 20px; 
     font-size: 18px;
     font-weight: bold;
+    color:rebeccapurple;
+
 }
 
-/* Confirmation buttons */
 .confirmation button {
-    margin: 10px 5px; /* Add spacing between the buttons */
-    padding: 10px 20px; /* Button size */
+    margin: 10px 5px; 
+    padding: 10px 20px; 
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     display: inline-block;
 }
 
-/* Outer dimmed background for modal */
 .outer {
     position: fixed;
     top: 0;
@@ -344,10 +156,9 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure the modal is above other elements */
+    z-index: 1000; 
 }
 
-/* Responsive design adjustments for small screens */
 @media (max-width: 768px) {
     .search_item {
         flex-direction: column;

@@ -16,9 +16,9 @@ function AddItemType() {
     const [searchQuery, setSearchQuery] = useState(""); // Stores the current search term
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [name, setName] = useState("");
-    const [details, setDetails] = useState("");
-    const [reviews, setReviews] = useState("");
-    const [rating, setRating] = useState("");
+    const [stock, setStock] = useState("");
+    const [manufacturer, setManufacturer] = useState("");
+    // const [rating, setRating] = useState("");
     const [image, setImage] = useState("");
     const [desc, setDesc] = useState("");
     const[price,setPrice]=useState("")
@@ -55,9 +55,9 @@ function AddItemType() {
             category,
             name,
             price,
-            details,
-            reviews,
-            rating,
+            stock,
+            manufacturer,
+            // rating,
             image,
             desc,
             dimension,
@@ -134,18 +134,18 @@ function AddItemType() {
                 </div>
 
                 <div className={styles.form_group}>
-                    <label htmlFor="item_details">Item Stock:</label>
-                    <input type="number" id="item_details" value={details} onChange={(e) => setDetails(e.target.value)}/>
+                    <label htmlFor="item_stock">Item Stock:</label>
+                    <input type="number" id="item_stock" value={stock} onChange={(e) => setStock(e.target.value)}/>
                 </div>
                 <div className={styles.form_group}>
-                    <label htmlFor="item_desc">Image Decription:</label>
+                    <label htmlFor="item_desc">Decription:</label>
                     <input type="text" id="item_desc" value={desc} onChange={(e) => setDesc(e.target.value)}/>
                 </div>
 
 
                 <div className={styles.form_group}>
-                    <label htmlFor="item_reviews">Manufacturer:</label>
-                    <input type="text" id="item_reviews" value={reviews} onChange={(e) => setReviews(e.target.value)}/>
+                    <label htmlFor="item_manufacturer">Manufacturer:</label>
+                    <input type="text" id="item_manufacturer" value={manufacturer} onChange={(e) => setManufacturer(e.target.value)}/>
                 </div>
                 <div className={styles.form_group}>
                     <label htmlFor="dimension">Dimensions and weight:</label>
@@ -156,10 +156,10 @@ function AddItemType() {
                     <input type="text" id="warranty" value={warranty} onChange={(e) => setWarranty(e.target.value)}/>
                 </div>
 
-                <div className={styles.form_group}>
+                {/* <div className={styles.form_group}>
                     <label htmlFor="item_rating">Rating:</label>
                     <input type="text" id="item_rating" value={rating} onChange={(e) => setRating(e.target.value)}/>
-                </div>
+                </div> */}
 
                 <div className={styles.form_group}>
                     <label htmlFor="item_image">Image URL:</label>
@@ -171,13 +171,6 @@ function AddItemType() {
                 <button type="button" onClick={cancel} className={styles.cancel_button}>Cancel</button>
             </form>
              
-            {/* {showConfirmation && (
-                <div>
-                    <p>Would you like to add new item </p>
-                    <button onClick={item_add_handler}>Yes</button>
-                    <button onClick={handleCancel}>No</button>
-                </div>
-            )} */}
             {showConfirmation && (
                 <>
                 

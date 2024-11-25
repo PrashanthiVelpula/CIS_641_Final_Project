@@ -179,23 +179,23 @@ function Details() {
                     <span>Item Price:</span> {details.price}$
                 </p>
                 <p>
-                    <span>Item Stock:</span> {details.details}
+                    <span>Item Stock:</span> {details.stock}
                 </p>
                 <p>
-                    <span>Item Description:</span> {details.desc}
+                    <span>Description:</span> {details.desc}
                 </p>
                 <p>
-                    <span>Manufacturer:</span> {details.reviews}
+                    <span>Manufacturer:</span> {details.manufacturer}
                 </p>
                 <p>
-                    <span>Dimensions & Weight:</span> {details.reviews}
+                    <span>Dimensions & Weight:</span> {details.dimension}
                 </p>
                 <p>
-                    <span>Warranty:</span> {details.reviews}
+                    <span>Warranty:</span> {details.warranty}
                 </p>
-                <p>
+                {/* <p>
                     <span>Item Rating:</span> {details.rating} <FontAwesomeIcon icon={faStar} />
-                </p>
+                </p> */}
                
             </div>
             {details.image && (

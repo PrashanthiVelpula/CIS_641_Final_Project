@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { database } from "../firebase";
 import { ref, get, update } from "firebase/database";
-import styles from './AddItemType.module.css'; // Reusing the same style file for consistency
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './AddItemType.module.css';
 
 function EditItemDetails() {
     const { category, itemId } = useParams();
     const [details, setDetails] = useState({
-        name: "",
-        price:"",
-        details: "",
-        reviews: "",
-        rating: "",
+        name: "", 
+        price: "",
+        stock: "", 
+        desc: "", 
+        manufacturer: "", 
+        dimension: "", 
+        warranty: "", 
         image: "",
-        desc:""
     });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -26,18 +26,14 @@ function EditItemDetails() {
             try {
                 const itemRef = ref(database, `items/${category}/${itemId}`);
                 const snapshot = await get(itemRef);
-                if (snapshot.exists()) {
-                    setDetails(snapshot.val());
-                } else {
-                    setError("Item not found.");
-                }
+                if (snapshot.exists()) setDetails(snapshot.val());
+                else setError("Item not found.");
             } catch (error) {
                 setError("Failed to load item details.");
             } finally {
                 setLoading(false);
             }
         };
-
         fetchData();
     }, [category, itemId]);
 
@@ -55,14 +51,9 @@ function EditItemDetails() {
             setError("Failed to save changes.");
         }
     };
-    const handleCancelChanges=()=>{
-        navigate(`/details/${category}/${details.name}`)
-    }
 
-    const handleCancel = () => {
-        setShowConfirmation(false);
-    };
-
+    const handleCancelChanges = () => navigate(`/details/${category}/${details.name}`);
+    const handleCancel = () => setShowConfirmation(false);
     const handleSubmit = (e) => {
         e.preventDefault();
         setShowConfirmation(true);
@@ -77,145 +68,47 @@ function EditItemDetails() {
             <form onSubmit={handleSubmit}>
                 <div className={styles.form_group}>
                     <label htmlFor="name">Item Name:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={details.name}
-                        onChange={handleInputChange}
-                    />
+                    <input type="text" id="name" name="name" value={details.name} onChange={handleInputChange} />
                 </div>
                 <div className={styles.form_group}>
                     <label htmlFor="price">Item Price:</label>
-                    <input
-                        type="number"
-                        id="price"
-                        name="price"
-                        value={details.price}
-                        onChange={handleInputChange}
-                    />
-                </div>
-
-                <div className={styles.form_group}>
-                    <label htmlFor="details">Item Stock:</label>
-                    <input
-                        type="number"
-                        id="details"
-                        name="details"
-                        value={details.details}
-                        onChange={handleInputChange}
-                    />
-                </div>
-
-                <div className={styles.form_group}>
-                    <label htmlFor="desc">Image Description:</label>
-                    <input
-                        type="text"
-                        id="desc"
-                        name="desc"
-                        value={details.desc}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                
-                <div className={styles.form_group}>
-                    <label htmlFor="reviews">Manufacturer:</label>
-                    <input
-                        type="text"
-                        id="reviews"
-                        name="reviews"
-                        value={details.reviews}
-                        onChange={handleInputChange}
-                    />
+                    <input type="number" id="price" name="price" value={details.price} onChange={handleInputChange} />
                 </div>
                 <div className={styles.form_group}>
-                    <label htmlFor="dimension">Dimensions and weight:</label>
-                    <input
-                        type="text"
-                        id="dimension"
-                        name="dimension"
-                        value={details.dimension}
-                        onChange={handleInputChange}
-                    />
+                    <label htmlFor="stock">Item Stock:</label>
+                    <input type="number" id="stock" name="stock" value={details.stock} onChange={handleInputChange} />
                 </div>
                 <div className={styles.form_group}>
-                    <label htmlFor="reviews">Warranty:</label>
-                    <input
-                        type="text"
-                        id="warranty:"
-                        name="warranty:"
-                        value={details.warranty}
-                        onChange={handleInputChange}
-                    />
+                    <label htmlFor="desc">Description:</label>
+                    <input type="text" id="desc" name="desc" value={details.desc} onChange={handleInputChange} />
                 </div>
-
                 <div className={styles.form_group}>
-                    <label htmlFor="rating">Rating:</label>
-                    <input
-                        type="number"
-                        id="rating"
-                        name="rating"
-                        value={details.rating}
-                        onChange={handleInputChange}
-                    />
+                    <label htmlFor="manufacturer">Manufacturer:</label>
+                    <input type="text" id="manufacturer" name="manufacturer" value={details.manufacturer} onChange={handleInputChange} />
                 </div>
-
+                <div className={styles.form_group}>
+                    <label htmlFor="dimension">Dimensions and Weight:</label>
+                    <input type="text" id="dimension" name="dimension" value={details.dimension} onChange={handleInputChange} />
+                </div>
+                <div className={styles.form_group}>
+                    <label htmlFor="warranty">Warranty:</label>
+                    <input type="text" id="warranty" name="warranty" value={details.warranty} onChange={handleInputChange} />
+                </div>
                 <div className={styles.form_group}>
                     <label htmlFor="image">Image URL:</label>
-                    <input
-                        type="text"
-                        id="image"
-                        name="image"
-                        value={details.image}
-                        onChange={handleInputChange}
-                    />
+                    <input type="text" id="image" name="image" value={details.image} onChange={handleInputChange} />
                 </div>
-
-            
-
-                <button type="submit" className={styles.submit_button}>
-                    Save
-                </button>
+                <button type="submit" className={styles.submit_button}>Save</button>
                 <button type="button" onClick={handleCancelChanges} className={styles.cancel_button}>Cancel</button>
-                {/* <button
-                    type="button"
-                    onClick={() => navigate(`/item-types/${category}`)}
-                    className={styles.cancel_button}
-                >
-                    Cancel
-                </button> */}
             </form>
-
-            {/* {showConfirmation && (
-                <div className={styles["confirmation-modal"]}>
-                    <p>Are you sure you want to save these changes?</p>
-                    <button
-                        onClick={handleSaveChanges}
-                       
-                    >
-                        Yes
-                    </button>
-                    <button
-                        onClick={handleCancel}
-                       
-                    >
-                        No
-                    </button>
-                </div>
-            )} */}
             {showConfirmation && (
-                <>
-                
-                    <div className={styles.outer}>
+                <div className={styles.outer}>
                     <div className={styles.confirmation}>
-                    <p>Are you sure you want to save these changes?</p>
-                    <button
-                        onClick={handleSaveChanges}>Yes</button>
-                    <button onClick={handleCancel}>No</button>
+                        <p>Are you sure you want to save these changes?</p>
+                        <button onClick={handleSaveChanges}>Yes</button>
+                        <button onClick={handleCancel}>No</button>
                     </div>
                 </div>
-
-                </>
             )}
         </div>
     );
