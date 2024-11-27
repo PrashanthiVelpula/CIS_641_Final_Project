@@ -95,6 +95,8 @@
     background-color: #0056b3;
 }
 
+
+
 /* Mobile responsiveness */
 @media (max-width: 600px) {
     .details_wrapper {

@@ -413,8 +413,8 @@ import InventoryCounter from "./InventoryCounter";
 import Layout from './Layout'; // Import the Layout component
 
 function App() {
-  // Remove the line below as it clears the login state:
-  // localStorage.removeItem('isLoggedIn');
+
+   //localStorage.removeItem('isLoggedIn');
 
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem('isLoggedIn') === 'true';

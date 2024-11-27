@@ -10,11 +10,13 @@
 } */
 
 .header-container {
+    background-color:  #4CAF50;;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: inherit; /* Matches the parent background */
+    /* background: inherit; */
+     /* Matches the parent background */
     position: relative; /* Ensures it aligns within the layout */
     z-index: 1; /* Ensures the header stays above other content */
     width: 98%;
@@ -30,6 +32,8 @@
     padding: 0 15px; /* Adjust padding for consistent button size */
     flex-shrink: 0; /* Prevent button from shrinking too small */
     min-width: 120px; /* Ensure a minimum width for readability */
+    background: inherit;
+
 }
 
 /* Modal styles for confirmation */
@@ -87,3 +91,6 @@
         max-width: 350px;
     }
 }
+
+
+

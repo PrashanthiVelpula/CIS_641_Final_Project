@@ -87,6 +87,8 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from './firebase'; // Import the auth object
 import { signInWithEmailAndPassword } from 'firebase/auth'; // Import the Firebase auth method
 import styles from './LoginPage.module.css';
+import login from './assets/login.jpg';  
+
 
 function Login({ onLogin }) {
     const navigate = useNavigate();
@@ -94,6 +96,9 @@ function Login({ onLogin }) {
     const [Password, setPassword] = useState({ value: '', isTouched: false });
     const [error, setError] = useState('');
     const [formErrors, setFormErrors] = useState({}); // To track field-specific errors
+
+    const [showForm, setShowForm] = useState(false); 
+    
 
     // Validate individual fields
     const validateField = (field, value) => {
@@ -162,7 +167,25 @@ function Login({ onLogin }) {
         navigate('/forgot-password'); // Navigate to the forgot password page
     };
 
+    const handleGetStarted = () => {
+        setShowForm(true);
+        document.querySelector('.App').classList.add('darken'); // Add 'darken' class to the App div
+      };
+
     return (
+        
+        // <div className={styles.App} style={{ backgroundImage: `url(${login})` }}>
+             <div className={`${styles.App} ${showForm ? styles.darkBackground : ''}`} style={{ backgroundImage: `url(${login})` }}>
+
+{!showForm ? (
+                <div className={styles.getStartedContainer}>
+                    <button 
+                        className={styles.getStartedButton} 
+                        onClick={handleGetStarted}
+                    >
+                        Get Started
+                    </button>
+                </div>):(
         <div className={styles.App}>
             <form onSubmit={handleLogin}>
                 <div className={styles.style1}>
@@ -211,7 +234,10 @@ function Login({ onLogin }) {
                 </div>
             </form>
         </div>
+                )}</div>
     );
+
+    
 }
 
 // Add PropTypes validation for the `onLogin` prop
@@ -219,7 +245,42 @@ Login.propTypes = {
     onLogin: PropTypes.func.isRequired, // Ensure `onLogin` is a required function
 };
 
+
 export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

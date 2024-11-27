@@ -73,7 +73,7 @@ function InventoryCounter() {
                             <ul>
                                 {Object.entries(items).map(([itemId, itemData]) => (
                                     <li key={itemId}>
-                                        <strong>{itemData.name}</strong>: Stock - {itemData.details} {/* Assuming 'details' holds the stock count */}
+                                        <strong>{itemData.name}</strong>: Stock - {itemData.stock} {/* Assuming 'details' holds the stock count */}
                                     </li>
                                 ))}
                             </ul>

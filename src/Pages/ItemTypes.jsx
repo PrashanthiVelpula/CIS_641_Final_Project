@@ -85,9 +85,9 @@ function Itemtypes() {
                 {filteredSearch.map((item) => (
                     <div key={item.id} className={styles.item_container}>
                         <div className={styles.item} onClick={() => handleDetailsPage(item.name)}>
-                            
+                        <div style={{fontSize:"20px",fontWeight:"bold"}}>{item.name}</div>
                             <img className={styles.image_style} src={item.image} alt="Item" />
-                            <strong>{item.name}</strong>
+                            <strong>${item.price}</strong>
                         </div>
                         <div className={styles.delete_icon_container}>
                             <FontAwesomeIcon
