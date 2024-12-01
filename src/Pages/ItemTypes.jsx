@@ -70,7 +70,7 @@ function Itemtypes() {
     return (
         <div>
             <div className={styles.search_item}>
-                <button onClick={handleBack}>Back</button>
+                <button onClick={handleBack} className='styles.backbutton'>Back</button>
                 <h1>Items in {category}</h1>
                 <input
                     type="text"

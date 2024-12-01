@@ -132,7 +132,7 @@ button:hover {
     z-index: 1000; /* Ensure the modal is above other elements */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     
     .confirmation{
         width: 80%;

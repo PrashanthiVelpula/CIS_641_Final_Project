@@ -107,15 +107,6 @@ html, body {
   padding: 0;
 }
 
-.App {
-  height: 100vh;
-  width: 100vw; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFEBCD; /* Light beige background */
-}
-
 /* Style the form container */
 /* .style1 {
   background-color: rgba(177, 224, 36, 0.424); 
@@ -232,48 +223,6 @@ sup {
 .input_group input:invalid {
   border: 2px solid red;
 }
-
-
-/* Responsive Design */
-@media (max-width: 480px) {
-  .App {
-      height: 100vh; 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #FFEBCD; 
-      background-size: cover;          /* Better for full coverage without gaps */
-      background-position: center top;     /* Centers the background image */
-      background-repeat: no-repeat;    /* Prevents tiling */
-      object-fit: contain; 
-      background: url('./assets/login.jpg') no-repeat center center/cover; 
-  }
- 
-  .style1 {
-      padding: 5px; /* Reduce padding for small screens */
-      overflow: hidden;
-      margin: auto;
-  }
-
-  .style1 div {
-      margin: 5px;
-  }
-
-  button {
-      font-size: 0.9rem; /* Slightly smaller font for buttons */
-  }
-
-  .input_group input {
-      font-size: 0.9rem; /* Smaller font for inputs */
-  }
-
-  .input_group label {
-      margin-right: 0; /* Remove extra margin */
-      font-size: 0.9rem; /* Adjust font size for labels */
-  }
- 
-}
-
 /* Background Image for the Login Page */
 .App {
   height: 100vh;
@@ -281,34 +230,18 @@ sup {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('./assets/login.jpg') no-repeat center center/cover; 
+  background: url('./assets/login.jpg') no-repeat center center; 
   /* background: url('./assets/login1.jpg') no-repeat center center/cover;  */
   
   /* Replace 'your-image-path.jpg' with your actual image path */
-  background-color: #FFEBCD; /* Fallback color */
+  background-color:white; /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  z-index: 1;
+  background-repeat: no-repeat;       /* Prevents tiling */ 
+  background-size: cover;            
   position: relative; /* To add overlay if needed */
-
   transition: filter 0.5s ease; 
 
-}
-
-
-
-/* Optional: Add a translucent overlay for readability */
-.App::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* background: rgba(0, 0, 0, 0.5);  */
-  opacity: 0; /* Initially invisible */
-  transition: opacity 0.5s ease; /* Smooth transition for opacity */
-  
-  /* Dark overlay for better contrast */
-  z-index: 1;
-  pointer-events: none; 
 }
 
 form {
@@ -360,3 +293,82 @@ form.hidden {
 .App.darken::before {
   opacity: 1; /* Fully visible when darkened */
 }
+
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .App {
+      /* height: 100vh; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #FFEBCD;  */
+      background-size: contain;          /* Better for full coverage without gaps */
+      background-position: center ;     /* Centers the background image */
+      background-repeat: no-repeat;    /* Prevents tiling */
+      /* background: url('./assets/login.jpg') no-repeat center center/cover;  */
+  }
+ 
+  .getStartedButton {
+    margin-top: 400px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .getStartedButton:hover {
+    background-color: #45a049;
+  }
+
+  
+  .style1 {
+      padding: 5px; /* Reduce padding for small screens */
+      /* overflow: hidden; */
+      margin: auto;
+  }
+
+  .style1 div {
+      margin: 5px;
+  }
+
+  button {
+      font-size: 0.9rem; /* Slightly smaller font for buttons */
+  }
+  button:hover {
+    background-color: #45a049; /* Slightly darker green */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .input_group input {
+      font-size: 0.9rem; /* Smaller font for inputs */
+  }
+
+  .input_group label {
+      margin-right: 0; /* Remove extra margin */
+      font-size: 0.9rem; /* Adjust font size for labels */
+  }
+ 
+}
+
+
+/* Optional: Add a translucent overlay for readability */
+/* .App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   background: rgba(0, 0, 0, 0.5);  
+  opacity: 0; 
+  transition: opacity 0.5s ease; 
+  z-index: 1;
+  pointer-events: none; 
+} */
+

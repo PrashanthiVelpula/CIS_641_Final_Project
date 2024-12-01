@@ -88,6 +88,7 @@ import { auth } from './firebase'; // Import the auth object
 import { signInWithEmailAndPassword } from 'firebase/auth'; // Import the Firebase auth method
 import styles from './LoginPage.module.css';
 import login from './assets/login.jpg';  
+import login1 from './assets/login1.jpg'; 
 
 
 function Login({ onLogin }) {
@@ -169,13 +170,13 @@ function Login({ onLogin }) {
 
     const handleGetStarted = () => {
         setShowForm(true);
-        document.querySelector('.App').classList.add('darken'); // Add 'darken' class to the App div
+        document.querySelector('.App'); // Add 'darken' class to the App div
       };
 
     return (
         
         // <div className={styles.App} style={{ backgroundImage: `url(${login})` }}>
-             <div className={`${styles.App} ${showForm ? styles.darkBackground : ''}`} style={{ backgroundImage: `url(${login})` }}>
+             <div className={`${styles.App} ${showForm ? styles.darkBackground : ''}`} style={{ backgroundImage: `url(${login1})` }}>
 
 {!showForm ? (
                 <div className={styles.getStartedContainer}>
