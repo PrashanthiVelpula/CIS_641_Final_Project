@@ -10,7 +10,7 @@
     flex-wrap: wrap; 
 }
 .search_item h1{
-    color:purple;
+    /* color:purple; */
 }
 
 
@@ -22,17 +22,16 @@
     border-radius: 5px;
     outline: none;
     /* background-color:black; */
-    color: aliceblue;
     /* background-color: var(--input-bg);
     color: var(--input-text); */
     flex: 1; /* Allow search bar to take remaining space */
     margin: 0 10px;
     min-width: 150px; /* Ensures input doesn’t shrink too much */
-    color:blue;
+    color:black;
 }
 
 .searchBar::placeholder {
-    color: purple;
+    /* color: black; */
 }
 
 /* Item styles */
@@ -73,7 +72,7 @@
 }
 
 .item:hover {
-    background-color: #f0f0f0;
+    background-color: rgb(156, 154, 154);
 }
 
 /* Delete icon */
@@ -119,7 +118,7 @@
 } */
 
 .confirmation {
-    background: white;
+    background: gray;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -132,7 +131,7 @@
     margin-bottom: 20px; /* Add space between the question and buttons */
     font-size: 18px;
     font-weight: bold;
-    color:rebeccapurple;
+    /* color:rebeccapurple; */
 
 }
 

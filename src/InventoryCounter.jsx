@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import { ref, onValue } from "firebase/database";
 import { database } from "./firebase";
 import Itemtypes from "./Pages/ItemTypes"; // Assuming this is where you get the item types from
-
+import { useTheme } from "./ThemeContext";
 function InventoryCounter() {
     const [categoryCounts, setCategoryCounts] = useState({});
     const [totalItems, setTotalItems] = useState(0);
     const [totalCategories, setTotalCategories] = useState(0); // Added state for total categories
     const [loading, setLoading] = useState(true);
+    const { isDarkTheme } = useTheme();
+const textStyle = {
+        color: isDarkTheme ? '#f8f8f8' : '#333',  // Use theme colors for text
+    };
 
     useEffect(() => {
         const itemsRef = ref(database, 'items');
@@ -61,8 +65,8 @@ function InventoryCounter() {
     if (loading) return <p>Loading inventory...</p>;
 
     return (
-        <div>
-            <h1>Total Categories: {totalCategories}</h1> {/* Display total categories */}
+        <div style={textStyle}>
+            <h1 style={textStyle}>Total Categories: {totalCategories}</h1> {/* Display total categories */}
             <h2>Total Items in Inventory: {totalItems}</h2>
             <h3>Items by Category:</h3>
             {Object.keys(categoryCounts).length > 0 ? (

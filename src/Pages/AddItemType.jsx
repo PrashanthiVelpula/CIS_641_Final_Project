@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 
 import { database } from "../firebase";
 import { ref, push, onValue } from "firebase/database";
+import { useTheme } from "../ThemeContext";
 
 function AddItemType() {
     const navigate = useNavigate();
@@ -26,6 +27,15 @@ function AddItemType() {
     const[warranty,setWarranty]=useState("")
 
     const [showConfirmation, setShowConfirmation] = useState(false); 
+
+    const { isDarkTheme } = useTheme();
+
+    const textStyle1 = {
+        backgroundColor: isDarkTheme ? '#333':'#fff'
+    };
+const textStyle = {
+        color: isDarkTheme ? '#f8f8f8' : '#333',  // Use theme colors for text
+    };
 
 
     // Fetch all categories from Firebase on component mount
@@ -92,8 +102,8 @@ function AddItemType() {
 
     return (
         <div className={styles.form_container}>
-            <h1>Add New Item</h1>
-            <form onSubmit={handleSaveClick}>
+            <h1 style={textStyle}>Add New Item</h1>
+            <form onSubmit={handleSaveClick} style={textStyle1}>
                 <div className={styles.form_group}>
                     <label htmlFor="category_name">Category Name:</label>
                         <div className={styles.custom_dropdown}>
@@ -174,8 +184,8 @@ function AddItemType() {
             {showConfirmation && (
                 <>
                 
-                    <div className={styles.outer}>
-                    <div className={styles.confirmation}>
+                    <div className={styles.outer} style={textStyle}>
+                    <div className={styles.confirmation}style={textStyle1}>
                     <p>Would you like to add a new item?</p>
                     <button onClick={item_add_handler}>Yes</button>
                     <button onClick={handleCancel}>No</button>

@@ -414,7 +414,7 @@ import Layout from './Layout'; // Import the Layout component
 
 function App() {
 
-   localStorage.removeItem('isLoggedIn');
+   //localStorage.removeItem('isLoggedIn');
 
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem('isLoggedIn') === 'true';

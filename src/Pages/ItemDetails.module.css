@@ -6,8 +6,8 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
-    color: #333;
-}
+    /* color: #333;*/
+} 
 
 /* Back button */
 .details_wrapper button {
@@ -31,7 +31,7 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #222;
+    /* color: #222; */
     text-align: center;
 }
 
@@ -48,13 +48,13 @@
 .details_content p {
     margin: 0;
     font-size: 16px;
-    color: #18e70d;
+    /* color: #18e70d; */
 }
 
 /* Highlight specific labels */
 .details_content p span {
     font-weight: bold;
-    color: rgb(255, 89, 0);
+    /* color: rgb(255, 89, 0); */
     
 }
 

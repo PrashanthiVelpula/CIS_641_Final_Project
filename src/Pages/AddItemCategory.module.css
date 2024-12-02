@@ -12,7 +12,7 @@
     margin-bottom: 20px; /* Add space between the question and buttons */
     font-size: 18px;
     font-weight: bold;
-    color:rebeccapurple;
+    /* color:rebeccapurple; */
 }
 
 .confirmation button {
@@ -35,6 +35,37 @@
     justify-content: center;
     align-items: center;
     z-index: 1000; /* Ensure the modal is above other elements */
+}
+
+.form_group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form_group input, .form_group select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+.form_container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.form_container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    /* color: purple; */
 }
 
 @media (max-width: 600px) {

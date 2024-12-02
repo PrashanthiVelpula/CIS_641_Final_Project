@@ -161,6 +161,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { database } from '../firebase'; // Import your Firebase database instance
 import { ref, onValue, remove } from 'firebase/database';
+import { useTheme } from "../ThemeContext";
 
 function Itemcategories() {
     const navigate = useNavigate();
@@ -168,6 +169,8 @@ function Itemcategories() {
     const [searchTerm, setSearchTerm] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [categoryToDelete, setCategoryToDelete] = useState(null);
+
+    const { isDarkTheme } = useTheme();
 
     // Fetch categories from Firebase on component mount
     useEffect(() => {
@@ -243,10 +246,17 @@ function Itemcategories() {
         category.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const textStyle = {
+        color: isDarkTheme ? '#f8f8f8' : '#333',  // Use theme colors for text
+    };
+    const textStyle1 = {
+        backgroundColor: isDarkTheme ? '#333':'#fff'
+    };
+   
     return (
         <div>
             <div className={styles.search_item}>
-                <h1>Item Categories Page</h1>
+                <h1 style={textStyle}>Item Categories Page</h1>
                 <input
                     type="text"
                     placeholder="Search The Item"
@@ -258,10 +268,10 @@ function Itemcategories() {
                 </button>
             </div>
 
-            <div className={styles.item_styles}>
+            <div className={styles.item_styles} >
                 {filteredCategories.map((name) => (
-                    <div key={name} className={styles.item}>
-                        <h1 onClick={() => handleItemTypesNavigation(name)}> {name} </h1>
+                    <div key={name} className={styles.item} >
+                        <h1 style={textStyle} onClick={() => handleItemTypesNavigation(name)}> {name} </h1>
                         <FontAwesomeIcon
                             icon={faTrash}
                             className={styles.delete_icon}
@@ -272,10 +282,10 @@ function Itemcategories() {
             </div>
 
             {showConfirmation && (
-                <div className={styles.outer}>
-                    <div className={styles.confirmation}>
+                <div className={styles.outer} style={textStyle}>
+                    <div className={styles.confirmation} style={textStyle1} >
                         <p>Are you sure you want to delete {categoryToDelete}?</p>
-                        <button onClick={handleDelete}>Yes</button>
+                        <button onClick={handleDelete} >Yes</button>
                         <button onClick={handleCancel}>No</button>
                     </div>
                 </div>

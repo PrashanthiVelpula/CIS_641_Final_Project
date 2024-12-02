@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { database } from "../firebase";
 import { ref, get, update } from "firebase/database";
 import styles from './AddItemType.module.css';
+import { useTheme } from "../ThemeContext";
 
 function EditItemDetails() {
     const { category, itemId } = useParams();
@@ -20,6 +21,14 @@ function EditItemDetails() {
     const [error, setError] = useState(null);
     const [showConfirmation, setShowConfirmation] = useState(false);
     const navigate = useNavigate();
+
+const { isDarkTheme } = useTheme();
+const textStyle = {
+        color: isDarkTheme ? '#f8f8f8' : '#333',  // Use theme colors for text
+    };
+ const textStyle1 = {
+            backgroundColor: isDarkTheme ? '#333':'#fff'
+        };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -63,9 +72,9 @@ function EditItemDetails() {
     if (error) return <p className={styles.error}>{error}</p>;
 
     return (
-        <div className={styles.form_container}>
-            <h1>Edit Item Details</h1>
-            <form onSubmit={handleSubmit}>
+        <div className={styles.form_container} >
+            <h1 style={textStyle}>Edit Item Details</h1>
+            <form onSubmit={handleSubmit}style={textStyle1}>
                 <div className={styles.form_group}>
                     <label htmlFor="name">Item Name:</label>
                     <input type="text" id="name" name="name" value={details.name} onChange={handleInputChange} />
@@ -102,9 +111,9 @@ function EditItemDetails() {
                 <button type="button" onClick={handleCancelChanges} className={styles.cancel_button}>Cancel</button>
             </form>
             {showConfirmation && (
-                <div className={styles.outer}>
-                    <div className={styles.confirmation}>
-                        <p>Are you sure you want to save these changes?</p>
+                <div className={styles.outer} style={textStyle}>
+                    <div className={styles.confirmation} style={textStyle1}>
+                        <p style={textStyle}>Are you sure you want to save these changes?</p>
                         <button onClick={handleSaveChanges}>Yes</button>
                         <button onClick={handleCancel}>No</button>
                     </div>

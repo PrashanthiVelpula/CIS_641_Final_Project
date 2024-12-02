@@ -6,6 +6,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import { database } from '../firebase'; // Import Firebase instance
 import { ref, onValue, remove } from 'firebase/database';
+import { useTheme } from "../ThemeContext";
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 function Itemtypes() {
     const navigate = useNavigate();
@@ -14,6 +16,15 @@ function Itemtypes() {
     const [itemSearch, setItemSearch] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [itemToDelete, setItemToDelete] = useState(null);
+
+    const { isDarkTheme } = useTheme();
+    const textStyle = {
+            color: isDarkTheme ? '#f8f8f8' : '#333',  // Use theme colors for text
+
+        };
+        const textStyle1 = {
+            backgroundColor: isDarkTheme ? '#333':'#fff'
+        };
 
     useEffect(() => {
         const itemsRef = ref(database, `items/${category}`);
@@ -71,7 +82,7 @@ function Itemtypes() {
         <div>
             <div className={styles.search_item}>
                 <button onClick={handleBack} className='styles.backbutton'>Back</button>
-                <h1>Items in {category}</h1>
+                <h1 style={textStyle}>Items in {category}</h1>
                 <input
                     type="text"
                     placeholder="Search the item"
@@ -83,7 +94,7 @@ function Itemtypes() {
 
             <div className={styles.item_styles}>
                 {filteredSearch.map((item) => (
-                    <div key={item.id} className={styles.item_container}>
+                    <div key={item.id} className={styles.item_container} style={textStyle1}>
                         <div className={styles.item} onClick={() => handleDetailsPage(item.name)}>
                         <div style={{fontSize:"20px",fontWeight:"bold"}}>{item.name}</div>
                             <img className={styles.image_style} src={item.image} alt="Item" />
@@ -101,8 +112,8 @@ function Itemtypes() {
             </div>
 
             {showConfirmation && (
-                <div className={styles.outer}>
-                    <div className={styles.confirmation}>
+                <div className={styles.outer} style={textStyle}>
+                    <div className={styles.confirmation} style={textStyle1}>
                         <p>Are you sure you want to delete this item?</p>
                         <button onClick={handleDeleteItem}>Yes</button>
                         <button onClick={handleCancel}>No</button>

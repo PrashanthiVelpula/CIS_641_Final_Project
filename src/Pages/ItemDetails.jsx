@@ -101,6 +101,8 @@ import { getDatabase, ref, child, get } from 'firebase/database';
 import styles from './ItemDetails.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faStar } from '@fortawesome/free-solid-svg-icons';
+import { useTheme } from "../ThemeContext";
+
 
 function Details() {
     const { item, category } = useParams();
@@ -108,6 +110,10 @@ function Details() {
     const [details, setDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [itemId, setItemId] = useState(null);
+    const { isDarkTheme } = useTheme();
+const textStyle = {
+        color: isDarkTheme ? '#f8f8f8' : '#333',  // Use theme colors for text
+    };
 
     useEffect(() => {
         const dbRef = ref(getDatabase());
@@ -162,12 +168,12 @@ function Details() {
     }
 
     return (
-        <div className={styles.details_wrapper}>
+        <div className={styles.details_wrapper} style={textStyle}>
             <div className={styles.details_buttons}>
                 <button onClick={handleBack}>Back</button>
                 <button onClick={handleEditPage}>Edit Item Details</button>
             </div>
-            <h1 className={styles.details_heading}>Item Details: {details.name}</h1>
+            <h1 style={textStyle} className={styles.details_heading}>Item Details: {details.name}</h1>
             <div className={styles.details_content}>
                 <p>
                     <span>Item Category:</span> {details.category}

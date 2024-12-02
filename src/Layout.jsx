@@ -3,7 +3,7 @@
 import React from 'react';
 import Header from './Header'; // Adjust this path if necessary
 import { useTheme } from './ThemeContext';
-
+import "./theme.css"
 
 const Layout = ({ children , isLoggedIn ,onLogout }) => {
     const { isDarkTheme } = useTheme();
@@ -20,6 +20,7 @@ const Layout = ({ children , isLoggedIn ,onLogout }) => {
     };
     return (
         <div style={themeStyles}>
+            {/* <div className={isDarkTheme ? 'layout-dark' : 'layout-light'}> */}
             {isLoggedIn && <Header onLogout={onLogout}/>}
             <main>{children}</main> {/* This is where page content will be rendered */}
         </div>

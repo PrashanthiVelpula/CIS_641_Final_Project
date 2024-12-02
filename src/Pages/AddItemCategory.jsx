@@ -3,12 +3,23 @@ import { useNavigate } from "react-router-dom";
 import { database } from '../firebase'; // Import Firebase instance
 import styles from "./AddItemCategory.module.css";
 import { ref, push } from 'firebase/database';
+import { useTheme } from "../ThemeContext";
+
+
+
 
 
 function AddCategory() {
     const navigate = useNavigate();
     const [newCategory, setNewCategory] = useState("");
     const [showConfirmation, setShowConfirmation] = useState(false); 
+    const { isDarkTheme } = useTheme();
+    const textStyle = {
+        color: isDarkTheme ? '#f8f8f8' : '#333',  // Use theme colors for text
+    };
+    const textStyle1 = {
+        backgroundColor: isDarkTheme ? '#333':'#fff'
+    };
     // const [message, setMessage] = useState(""); 
 
     const formValidate = () => {
@@ -34,12 +45,12 @@ function AddCategory() {
 
     return (
         <div>
-            <div>
-                <h1>Add Item Category</h1>
-            </div>
-            <form onSubmit={handleSaveClick}>
-                <div>
-                    <label htmlFor="Cat_name">Enter Category Name</label>
+            <div className={styles.form_container}>
+                <h1 style={textStyle}>Add Item Category</h1>
+            
+            <form onSubmit={handleSaveClick} style={textStyle1}>
+            <div className={styles.form_group}>
+                    <label htmlFor="Cat_name" style={{color: isDarkTheme ? '#f8f8f8' : '#333',}}>Enter Category Name :</label>
                     <input type="text" placeholder="Enter Category Name" id="Cat_name" name="new_category" value={newCategory} 
                         onChange={(e) => setNewCategory(e.target.value)}
                     />
@@ -52,8 +63,8 @@ function AddCategory() {
             {showConfirmation && (
                 <>
                 
-                    <div className={styles.outer}>
-                    <div className={styles.confirmation}>
+                    <div className={styles.outer} style={textStyle}>
+                    <div className={styles.confirmation} style={textStyle1}>
                     <p>Would you like to add a new category?</p>
                     <button onClick={handleAddCategory}>Yes</button>
                     <button onClick={handleCancel}>No</button></div>
@@ -75,7 +86,7 @@ function AddCategory() {
             )} */}
 </form>
             {/* {message && <p>{message}</p>} */}
-        </div>
+        </div></div>
     );
 }
 

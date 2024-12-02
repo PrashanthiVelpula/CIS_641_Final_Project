@@ -6,11 +6,14 @@ import { useTheme } from './ThemeContext';
 import InventoryCounter from "./InventoryCounter";
 import './Header.css';
 
+
 const Header = ({ onLogout }) => {
     const navigate = useNavigate();
     const { isDarkTheme, toggleTheme } = useTheme();
     const [showConfirmation, setShowConfirmation] = useState(false); 
     const [showCounter, setShowCounter] = useState(false);
+
+  
 
     const handleCountClick = () => {
         navigate("/inventory"); 
@@ -38,7 +41,14 @@ const Header = ({ onLogout }) => {
     const handleCancel = () => {
         setShowConfirmation(false); 
     };
-
+  
+    const textStyle = {
+            color: isDarkTheme ? '#f8f8f8' : '#333',  // Use theme colors for text
+        };
+     const textStyle1 = {
+                backgroundColor: isDarkTheme ? '#333':'#fff'
+            };
+    
     return (
         <header className="header-container">
             <button className="header-button" onClick={handleHome}>Home</button>
@@ -47,8 +57,8 @@ const Header = ({ onLogout }) => {
             <button className="header-button" onClick={handleSaveClick}>Logout</button>
             
             {showConfirmation && (
-                <div className="confirmation-overlay">
-                    <div className="confirmation-modal">
+                <div className="confirmation-overlay" style={textStyle}>
+                    <div className="confirmation-modal"style={textStyle1}>
                         <p>Are You sure to Logout?</p>
                         <button onClick={handleLogout}>Yes</button>
                         <button onClick={handleCancel}>No</button>

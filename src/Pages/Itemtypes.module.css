@@ -1,3 +1,9 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;  /* Prevents horizontal scroll */
+  }
 
 .item_styles {
     display: flex;
@@ -29,7 +35,7 @@
     max-width: calc(26.33% - 20px); /* Adjust max-width for 3 cards per row with 20px gap */
     margin-bottom: 20px;
     padding: 20px;
-    background-color: #fff;
+    /* background-color: #fff; */
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
@@ -48,7 +54,7 @@
     align-items: center;
     text-align: center;
     gap: 10px;
-    color: purple;
+    /* color: purple; */
 }
 
 .item:hover {
@@ -121,7 +127,7 @@
     flex: 1; /* Allow search bar to take remaining space */
     margin: 0 10px;
     /* min-width: 150px;  */
-    color:blue;
+    color:black;
 
 }
 
@@ -159,7 +165,7 @@ button:hover {
     margin-bottom: 20px; 
     font-size: 18px;
     font-weight: bold;
-    color:rebeccapurple;
+    /* color:rebeccapurple; */
 
 }
 

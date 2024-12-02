@@ -60,10 +60,12 @@
 .dropdown_item {
     padding: 8px;
     cursor: pointer;
+    color: black;
 }
 
 .dropdown_item:hover {
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
+
 }
 
 /* Buttons */
@@ -106,7 +108,7 @@ button:hover {
     margin-bottom: 20px; /* Add space between the question and buttons */
     font-size: 18px;
     font-weight: bold;
-    color:rebeccapurple;
+    /* color:rebeccapurple; */
 
 }
 
