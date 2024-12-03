@@ -183,7 +183,7 @@ button:disabled {
 .input_group label {
   margin-bottom: 5px; /* Space between label and input */
   font-weight: bold;
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .input_group input {
