@@ -31,7 +31,7 @@
      /* Matches the parent background */
     position: relative; /* Ensures it aligns within the layout */
     z-index: 1; /* Ensures the header stays above other content */
-    width: 98%;
+    width: 97%;
     margin-right: 10px;
     font-family: Poppins;
 }

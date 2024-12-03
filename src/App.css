@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  font-family: 'Roboto', sans-serif; 
+  /* font-family: 'Roboto', sans-serif;  */
 }
 @font-face {
   font-family: Poppins;
@@ -17,7 +17,7 @@ body, html {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;  /* Prevents horizontal scroll */
+overflow-x: hidden;    
   font-family: Poppins;
 }
 .logo {
