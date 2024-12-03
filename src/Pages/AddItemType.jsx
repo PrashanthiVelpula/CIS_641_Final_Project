@@ -187,7 +187,7 @@ const textStyle = {
                 
                     <div className={styles.outer} style={textStyle}>
                     <div className={styles.confirmation}style={textStyle1}>
-                    <p>Would you like to add a new item?</p>
+                    <p>Do you want to confirm saving this new item?</p>
                     <button onClick={item_add_handler}>Yes</button>
                     <button onClick={handleCancel}>No</button>
                     </div>

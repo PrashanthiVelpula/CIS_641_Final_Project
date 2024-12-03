@@ -65,7 +65,7 @@ function AddCategory() {
                 
                     <div className={styles.outer} style={textStyle}>
                     <div className={styles.confirmation} style={textStyle1}>
-                    <p>Would you like to add a new category?</p>
+                    <p>Do you want to confirm saving this new category?</p>
                     <button onClick={handleAddCategory}>Yes</button>
                     <button onClick={handleCancel}>No</button></div>
                 </div>

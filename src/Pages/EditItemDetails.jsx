@@ -113,7 +113,7 @@ const textStyle = {
             {showConfirmation && (
                 <div className={styles.outer} style={textStyle}>
                     <div className={styles.confirmation} style={textStyle1}>
-                        <p style={textStyle}>Are you sure you want to save these changes?</p>
+                        <p style={textStyle}>Do you want to confirm these changes?</p>
                         <button onClick={handleSaveChanges}>Yes</button>
                         <button onClick={handleCancel}>No</button>
                     </div>

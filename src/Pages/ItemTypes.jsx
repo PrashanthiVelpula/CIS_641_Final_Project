@@ -114,7 +114,7 @@ function Itemtypes() {
             {showConfirmation && (
                 <div className={styles.outer} style={textStyle}>
                     <div className={styles.confirmation} style={textStyle1}>
-                        <p>Are you sure you want to delete this item?</p>
+                        <p>Deleting this item is permanent. Proceed?</p>
                         <button onClick={handleDeleteItem}>Yes</button>
                         <button onClick={handleCancel}>No</button>
                     </div>

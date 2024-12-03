@@ -11,9 +11,9 @@ function Success()
      navigate('/')   
     }
     return(
-    <div className={styles.style1}>
-        <h1>Congrats!! Account Created Successfully</h1>
-        <div className={styles.btn_style}>
+    <div className={styles.style2}>
+        <h1>Account Created Successfully! Please Return to Login Page.</h1>
+        <div className={styles.backbutton_style}>
         <button onClick={navigateback}>Back to Account</button>
     </div>
     </div>

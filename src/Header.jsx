@@ -59,7 +59,7 @@ const Header = ({ onLogout }) => {
             {showConfirmation && (
                 <div className="confirmation-overlay" style={textStyle}>
                     <div className="confirmation-modal"style={textStyle1}>
-                        <p>Are You sure to Logout?</p>
+                        <p>Are you sure you want to log out?</p>
                         <button onClick={handleLogout}>Yes</button>
                         <button onClick={handleCancel}>No</button>
                     </div>
