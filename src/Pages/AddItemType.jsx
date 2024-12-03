@@ -99,6 +99,7 @@ const textStyle = {
     const handleCancel = () => {
         setShowConfirmation(false); 
     };
+    const isFormValid = category.trim() !== "" && name.trim() !== "";
 
     return (
         <div className={styles.form_container}>
@@ -177,7 +178,7 @@ const textStyle = {
                 </div>
 
                
-                <button type="submit" className={styles.submit_button}>Add New Item</button>
+                <button type="submit" className={styles.submit_button } disabled={!isFormValid}>Add New Item</button>
                 <button type="button" onClick={cancel} className={styles.cancel_button}>Cancel</button>
             </form>
              
