@@ -256,7 +256,7 @@ function Itemcategories() {
     return (
         <div>
             <div className={styles.search_item}>
-                <h1 style={textStyle}>Item Categories</h1>
+                <h1 style={textStyle}>Item Categories Page....</h1>
                 <input
                     type="text"
                     placeholder="Search The Item"
