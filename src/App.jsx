@@ -416,32 +416,33 @@ function App() {
 
    //localStorage.removeItem('isLoggedIn');
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(() => {
-  //   return localStorage.getItem('isLoggedIn') === 'true';
-  // });
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return sessionStorage.getItem('isLoggedIn') === 'true';
+  });
 
-  useEffect(() => {
-    const savedLoginState = localStorage.getItem('isLoggedIn');
-    if (savedLoginState === 'true') {
-      setIsLoggedIn(true); // Set as logged in if 'isLoggedIn' is true in localStorage
-    } else {
-      setIsLoggedIn(false); // Set as logged out if 'isLoggedIn' is not found or is false
-    }
-  }, []); // Only run once when the component is first mounted
+  //const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+  // useEffect(() => {
+  //   const savedLoginState = sessionStorage.getItem('isLoggedIn');
+  //   if (savedLoginState === 'true') {
+  //     setIsLoggedIn(true); // Set as logged in if 'isLoggedIn' is true in localStorage
+  //   } else {
+  //     setIsLoggedIn(false); // Set as logged out if 'isLoggedIn' is not found or is false
+  //   }
+  // }, []); // Only run once when the component is first mounted
+ // Attach the event listener
 
 
   // Function to set login status to true when the user logs in
   const handleLogin = () => {
     setIsLoggedIn(true);
-    localStorage.setItem('isLoggedIn', 'true'); // Save to local storage
+    sessionStorage.setItem('isLoggedIn', 'true'); // Save to local storage
   };
 
   // Function to set login status to false when the user logs out
   const handleLogout = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('isLoggedIn'); // Remove from local storage
+    sessionStorage.removeItem('isLoggedIn'); // Remove from local storage
   };
 
 
