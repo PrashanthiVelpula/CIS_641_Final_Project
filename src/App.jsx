@@ -395,7 +395,7 @@
 
 
 import './LoginPage.module.css';
-import { useReducer, useState } from "react";
+import { useReducer, useState ,useEffect} from "react";
 import { ThemeProvider } from './ThemeContext';
 import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom'; // Added Navigate for redirection
 
@@ -416,9 +416,21 @@ function App() {
 
    //localStorage.removeItem('isLoggedIn');
 
-  const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    return localStorage.getItem('isLoggedIn') === 'true';
-  });
+  // const [isLoggedIn, setIsLoggedIn] = useState(() => {
+  //   return localStorage.getItem('isLoggedIn') === 'true';
+  // });
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const savedLoginState = localStorage.getItem('isLoggedIn');
+    if (savedLoginState === 'true') {
+      setIsLoggedIn(true); // Set as logged in if 'isLoggedIn' is true in localStorage
+    } else {
+      setIsLoggedIn(false); // Set as logged out if 'isLoggedIn' is not found or is false
+    }
+  }, []); // Only run once when the component is first mounted
+
+
 
   // Function to set login status to true when the user logs in
   const handleLogin = () => {
@@ -432,6 +444,8 @@ function App() {
     localStorage.removeItem('isLoggedIn'); // Remove from local storage
   };
 
+
+  
   const [categories, setCategories] = useState([]);
   const addCategory = (newCategory) => {
     setCategories(prevCategories => [...prevCategories, newCategory]);
@@ -458,6 +472,8 @@ function App() {
   }
 
   const [items, dispatch] = useReducer(reducer, itemTypes);
+
+ 
 
   return (
     <ThemeProvider>
