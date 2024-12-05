@@ -139,7 +139,7 @@ const textStyle = {
                     <label htmlFor="item_type">Item Name:</label>
                     <input type="text" id="item_type" value={name} onChange={(e) => setName(e.target.value)}/>
                 </div>
-                <div className={styles.form_group}>
+                {/* <div className={styles.form_group}>
                     <label htmlFor="item_price">Item Price:</label>
                     <input type="number" id="item_price" value={price} onChange={(e) => setPrice(e.target.value)}/>
                 </div>
@@ -147,7 +147,39 @@ const textStyle = {
                 <div className={styles.form_group}>
                     <label htmlFor="item_stock">Item Stock:</label>
                     <input type="number" id="item_stock" value={stock} onChange={(e) => setStock(e.target.value)}/>
-                </div>
+                </div> */}
+
+                <div className={styles.form_group}>
+    <label htmlFor="item_price">Item Price:</label>
+    <input 
+        type="number" 
+        id="item_price" 
+        value={price} 
+        onChange={(e) => {
+            const value = parseFloat(e.target.value);
+            if (value > 0 || e.target.value === "") {
+                setPrice(e.target.value);
+            }
+        }} 
+    />
+</div>
+
+<div className={styles.form_group}>
+    <label htmlFor="item_stock">Item Stock:</label>
+    <input 
+        type="number" 
+        id="item_stock" 
+        value={stock} 
+        onChange={(e) => {
+            const value = parseFloat(e.target.value);
+            if (value > 0 || e.target.value === "") {
+                setStock(e.target.value);
+            }
+        }} 
+    />
+</div>
+
+
                 <div className={styles.form_group}>
                     <label htmlFor="item_desc">Decription:</label>
                     <input type="text" id="item_desc" value={desc} onChange={(e) => setDesc(e.target.value)}/>

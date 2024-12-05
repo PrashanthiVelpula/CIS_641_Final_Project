@@ -46,11 +46,22 @@ const textStyle = {
         fetchData();
     }, [category, itemId]);
 
+    // const handleInputChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setDetails((prev) => ({ ...prev, [name]: value }));
+    // };
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setDetails((prev) => ({ ...prev, [name]: value }));
-    };
-
+        const parsedValue = parseFloat(value);
+      
+        if (parsedValue > 0 || value === "") {
+          setDetails((prevDetails) => ({
+            ...prevDetails,
+            [name]: value,
+          }));
+        }
+      };
+      
     const handleSaveChanges = async () => {
         try {
             const itemRef = ref(database, `items/${category}/${itemId}`);
@@ -79,14 +90,40 @@ const textStyle = {
                     <label htmlFor="name">Item Name:</label>
                     <input type="text" id="name" name="name" value={details.name} onChange={handleInputChange} />
                 </div>
-                <div className={styles.form_group}>
+                {/* <div className={styles.form_group}>
                     <label htmlFor="price">Item Price:</label>
                     <input type="number" id="price" name="price" value={details.price} onChange={handleInputChange} />
                 </div>
                 <div className={styles.form_group}>
                     <label htmlFor="stock">Item Stock:</label>
                     <input type="number" id="stock" name="stock" value={details.stock} onChange={handleInputChange} />
-                </div>
+                </div> */}
+                <div className={styles.form_group}>
+  <label htmlFor="price">Item Price:</label>
+  <input 
+    type="number" 
+    id="price" 
+    name="price" 
+    value={details.price} 
+    onChange={handleInputChange} 
+    min="1" 
+  />
+</div>
+
+<div className={styles.form_group}>
+  <label htmlFor="stock">Item Stock:</label>
+  <input 
+    type="number" 
+    id="stock" 
+    name="stock" 
+    value={details.stock} 
+    onChange={handleInputChange} 
+    min="1" 
+  />
+</div>
+
+
+                
                 <div className={styles.form_group}>
                     <label htmlFor="desc">Description:</label>
                     <input type="text" id="desc" name="desc" value={details.desc} onChange={handleInputChange} />
