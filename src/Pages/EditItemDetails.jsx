@@ -46,11 +46,11 @@ const textStyle = {
         fetchData();
     }, [category, itemId]);
 
-    // const handleInputChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setDetails((prev) => ({ ...prev, [name]: value }));
-    // };
     const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setDetails((prev) => ({ ...prev, [name]: value }));
+    };
+    const handleInputChange1 = (e) => {
         const { name, value } = e.target;
         const parsedValue = parseFloat(value);
       
@@ -99,10 +99,10 @@ const textStyle = {
                     <input type="number" id="stock" name="stock" value={details.stock} onChange={handleInputChange} />
                 </div> */}
                 <div className={styles.form_group}><label htmlFor="price">Item Price:</label>
-                <input type="number" id="price" name="price" value={details.price} onChange={handleInputChange} min="1" /></div>
+                <input type="number" id="price" name="price" value={details.price} onChange={handleInputChange1} min="1" /></div>
 
                 <div className={styles.form_group}><label htmlFor="stock">Item Stock:</label>
-                <input type="number" id="stock" name="stock" value={details.stock} onChange={handleInputChange} min="1" /></div>
+                <input type="number" id="stock" name="stock" value={details.stock} onChange={handleInputChange1} min="1" /></div>
                 
                 <div className={styles.form_group}>
                     <label htmlFor="desc">Description:</label>

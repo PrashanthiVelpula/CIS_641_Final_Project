@@ -137,6 +137,14 @@ const textStyle = {
                     <label htmlFor="item_type">Item Name:</label>
                     <input type="text" id="item_type" value={name} onChange={(e) => setName(e.target.value)}/>
                 </div>
+
+                {/* <div className={styles.form_group}>
+                    <label htmlFor="item_price">Item Price:</label>
+                    <input type="number" id="item_price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                </div>
+
+                <div className={styles.form_group}><label htmlFor="item_stock">Item Stock:</label>
+                <input type="number" id="item_stock" value={stock} onChange={(e) => setStock(e.target.value)} /></div> */}
                
 
                 <div className={styles.form_group}><label htmlFor="item_price">Item Price:</label>
