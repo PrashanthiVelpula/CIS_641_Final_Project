@@ -1,13 +1,3 @@
-/* Header styles
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: #f8f8f8;
-    border-bottom: 1px solid #ccc;
-    /* flex-wrap: wrap;  
-} */
 @font-face {
     font-family: Poppins;
     src: url(/fonts/Poppins/Poppins-Regular.otf);    /*Applying font family*/
@@ -42,14 +32,13 @@
     margin: 10px;
     border-radius: 5px;
     font-weight: bold;
-    padding: 0 15px; /* Adjust padding for consistent button size */
-    flex-shrink: 0; /* Prevent button from shrinking too small */
-    min-width: 120px; /* Ensure a minimum width for readability */
+    padding: 0 15px; 
+    flex-shrink: 0; 
+    min-width: 120px; 
     background: inherit;
 
 }
 
-/* Modal styles for confirmation */
 .confirmation-overlay {
     position: fixed;
     top: 0;
